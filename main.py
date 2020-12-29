@@ -3,7 +3,6 @@ from random import randint
 EASY_LEVEL_TURNS = 10
 HARD_LEVEL_TURNS = 5
 
-
 # 3 Function to check if user's guess against actual answer
 def check_answer(guess, answer):
   if guess > answer:
@@ -17,22 +16,25 @@ def check_answer(guess, answer):
 
 
 print("Welcome to the guessing Game!")
-print ("I'm thinking of a number between 1 adn 100.")
+print ("I'm thinking of a number between 1 and 100.")
 answer = randint(1, 100)
+print(f"Pssst the correct answer is {answer}")
 
-#4. Make a function to set difficulty
+#4. Make a function to set difficulty changed order because should have the difficulty level choice first
+
 def set_difficulty():
   level = input("Choose a difficulty. Type 'easy' or 'hard': ")
   if level == "easy":
-    turns = EASY_LEVEL_TURNS
+    return EASY_LEVEL_TURNS
   else:
-    turns = HARD_LEVEL_TURNS
+    return HARD_LEVEL_TURNS
 
 
 
 #2. Let the user guess a number
 guess = int(input("Make a guess:"))
-
+turns = set_difficulty()
+print(f"You have {turns} attempts remaining to guess a number")
 
 
 
